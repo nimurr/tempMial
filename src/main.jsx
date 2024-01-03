@@ -7,10 +7,10 @@ import {
   RouterProvider,
 } from "react-router-dom"; 
 import Inbox from './Pages/Inbox.jsx';
-import Faq from './Pages/Faq.jsx';
-import Privacy from './Pages/Privacey.jsx';
+import Faq from './Pages/Faq.jsx'; 
 import Feedback from './Pages/Feebdack.jsx';
-import Contacts from './Pages/Contacts.jsx';
+import Contact from './Pages/Contacts.jsx';
+import Privacy from './Pages/Privacey';
 
 
 const router = createBrowserRouter([
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/contact', 
-        element:<Contacts></Contacts>
+        element:<Contact></Contact>
       },
     ]
   },

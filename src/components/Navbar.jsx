@@ -1,46 +1,79 @@
 import { MdOutlineInbox } from "react-icons/md";
 import { TbRefresh } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { FaRegCopyright } from "react-icons/fa";
+
 
 export default function Navbar() {
+
+  const handleRefresh = ()=>{
+    location.reload()
+  }
+
   return (
-    <div className=" h-[100vh] w-full flex flex-col justify-between bg-white dark:bg-[#111827] border-r border-gray-300 dark:border-gray-600 p-5">
+    <div className=" h-[100vh] overflow-y-scroll  w-full flex flex-col justify-between bg-white z-50 dark:bg-[#111827] border-r border-gray-300 dark:border-gray-600 px-8 py-6">
       {/* top nav item  */}
       <div className="">
-        <h2 className="text-4xl font-bold dark:text-white">
-          <span className="text-rose-600">@</span>bot.
-          <span className="text-rose-600">mail</span>
-        </h2>
+        <Link to={'/'} className="text-4xl font-extrabold dark:text-white">
+          Bot<span className="text-rose-600">gmail</span>
+        </Link>
         <div className="mt-5">
           <ul>
-            <Link to={'/'} className="flex gap-2 items-center font-semibold dark:text-gray-200 hover:bg-gray-100 rounded cursor-pointer p-2 dark:hover:text-gray-800">
+            <NavLink
+              to={"/"}
+              className="flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 hover:text-black rounded cursor-pointer p-2"
+            >
               <MdOutlineInbox className="text-2xl text-gray-500" /> Inbox
-            </Link>
-            <li className="flex gap-2 items-center font-semibold dark:text-gray-200 dark:hover:text-gray-800 hover:bg-gray-100 rounded cursor-pointer p-2">
+            </NavLink>
+            <li onClick={handleRefresh} className="flex gap-2 items-center font-semibold dark:hover:bg-[#141a24] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2">
               <TbRefresh className="text-2xl text-gray-500" /> Refresh
             </li>
           </ul>
         </div>
       </div>
 
+      {/* ads  */}
+      <div className="my-5">
+        <img className="w-full h-[350px]"  src="https://res.cloudinary.com/dav9mftpk/image/upload/v1704289996/Screenshot_2_ymtvf0.png" alt="" />
+      </div>
+
+
       {/* bottom Nav item  */}
       <div>
-
         <ul>
-          <Link to={'/faq'} className="flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2">FAQ</Link>
-          <Link to={'/privacy'} className="flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2">Privacy</Link>
-          <Link to={'/feedback'} className="flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2">Feedback</Link>
-          <Link to={'/contact'} className="flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2">Contacts</Link>
-          <Link to={'/'} className="flex gap-2 items-center font-bold dark:hover:bg-[#1f2937] hover:bg-gray-100 rounded cursor-pointer p-2 text-rose-500">Fake.mail</Link>
+          <NavLink
+            to={"/faq"}
+            className=" my-1 flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2"
+          >
+            FAQ
+          </NavLink>
+          <NavLink
+            to={"/privacy"}
+            className=" my-1 flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2"
+          >
+            Privacy
+          </NavLink>
+          <NavLink
+            to={"/feedback"}
+            className=" my-1 flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2"
+          >
+            Feedback
+          </NavLink>
+          <NavLink
+            to={"/contact"}
+            className=" my-1 flex gap-2 items-center font-semibold dark:hover:bg-[#1f2937] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2"
+          >
+            Contacts
+          </NavLink>
 
-          <div className="px-2 mb-4">
-            <p className="dark:text-blue-300">Expiring In...</p>
-            <span className="w-full rounded-xl bg-blue-600 h-2 block my-1"></span>
-            <span className="font-bold dark:text-blue-300 text-center block">7 days 19 hours 41 minutes 50 seconds </span>
+          <div className="px-2 my-4">
+            <span className="dark:text-gray-300">0B / 40MB</span>
+            <span className="w-full rounded-xl bg-gray-300 h-2 block my-1"></span>
           </div>
 
-        <hr className="dark:bg-gray-500 h-[1px] border-0" />
-            <p className="dark:text-gray-400 mt-4">@fake.mail</p>
+          <hr className="dark:bg-gray-500 bg-gray-200 h-[1px] border-0" />
+          <p className="dark:text-gray-200 mt-4 font-semibold  flex items-center mb-2"><FaRegCopyright className="mr-1" />BotGmail</p>
+          <span className="text-[13px]  block text-gray-500">Do Not Sell My Personal InformationChange Consent</span>
         </ul>
       </div>
     </div>

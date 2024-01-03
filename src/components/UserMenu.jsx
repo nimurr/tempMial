@@ -8,10 +8,14 @@ import {
   Label,
   Modal,
   Select,
-  TextInput,
+  TextInput
 } from "flowbite-react";
 import { MdOutlineEmail } from "react-icons/md";
-import { HiMail, HiOutlineExclamationCircle, HiOutlineUserAdd } from "react-icons/hi";
+import {
+  HiMail,
+  HiOutlineExclamationCircle,
+  HiOutlineUserAdd
+} from "react-icons/hi";
 import { FaRegUser } from "react-icons/fa6";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
@@ -19,32 +23,31 @@ import { useState } from "react";
 import { FaKey } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-
-
-
+import toast, { Toaster } from "react-hot-toast";
 
 export default function UserMenu() {
   const copyEmail = () => {
     navigator.clipboard.writeText("test@temp.com");
+    toast.success("Email Copy Successfully!");
   };
   const [openModal, setOpenModal] = useState(false);
   const [openModalLogin, setOpenModalLogin] = useState(false);
   const [openModalDelete, setOpenModalDelete] = useState(false);
-
   const [eye, setEye] = useState(false);
 
-  const handleEye=()=>{
-    setEye(!eye)
-  }
+  const handleEye = () => {
+    setEye(!eye);
+  };
 
   return (
-    <div className="flex justify-between p-5">
+    <div className="flex justify-between py-5 pl-3 lg:pl-0 pr-2">
+      <Toaster position="top-center" reverseOrder={true} />
       {/*=================== left side fake email ===========*/}
       <p
         onClick={copyEmail}
-        className="dark:text-white hover:text-gray-400 flex items-center gap-2 cursor-pointer"
+        className="dark:text-white md:text-xl hover:text-gray-400 flex items-center gap-2 cursor-pointer"
       >
-        <MdOutlineEmail className="text-xl"></MdOutlineEmail>test@temp.com
+        <MdOutlineEmail className="text-2xl"></MdOutlineEmail>test@botgmail.com
       </p>
 
       <div>
@@ -63,8 +66,8 @@ export default function UserMenu() {
                 </div>
 
                 <div className="w-8/12 mx-auto text-center">
-                  <h2 className="font-bold text-gray-300">Create An Account</h2>
-                  <p className="text-gray-400">
+                  <h2 className="font-bold dark:text-gray-300 text-gray-700">Create An Account</h2>
+                  <p className="text-gray-500">
                     Here you can create a new account for this you need to
                     select a username, then domain and password!
                   </p>
@@ -72,7 +75,7 @@ export default function UserMenu() {
 
                 <div>
                   <div className="mb-2 block w-fu">
-                    <Label htmlFor="email1" value="Your email" />
+                    <Label htmlFor="email1" value="Email" />
                   </div>
                   <div className="flex">
                     {/* <TextInput
@@ -87,27 +90,32 @@ export default function UserMenu() {
                       id="email4"
                       type="email"
                       icon={HiMail}
-                      placeholder="name@flowbite.com"
+                      placeholder="bot@gmail.com"
                       required
                     />
                     <Select className="w-4/12" id="countries" required>
-                      <option>test.com</option>
-                      <option>x.com</option>
-                      <option>y.com</option>
-                      <option>bs.com</option>
+                      <option>botgmail.com</option>
+                      <option>recovernserver.com </option>
                     </Select>
                   </div>
                 </div>
 
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="password1" value="Your password" />
+                    <Label htmlFor="password1" value="Password" />
                   </div>
                   <div className="dark:bg-[#374151] border dark:border-0 flex items-center px-2 rounded-md justify-between">
-                    <span className="dark:text-white"><FaKey /></span>
-                    <input className="bg-transparent dark:text-gray-400 border-0 w-11/12 outline-0 focus:outline-none rounded" type={`${!eye ? 'password' : 'text' }`} placeholder="Password" />
-                    <span className="dark:text-gray-200" onClick={handleEye}>{!eye ? <FaRegEyeSlash /> : <MdOutlineRemoveRedEye /> }  </span>
-                   
+                    <span className="dark:text-white">
+                      <FaKey />
+                    </span>
+                    <input
+                      className="bg-transparent dark:text-gray-400 border-0 w-11/12 outline-0 focus:outline-none rounded"
+                      type={`${!eye ? "password" : "text"}`}
+                      placeholder="Password"
+                    />
+                    <span className="dark:text-gray-200" onClick={handleEye}>
+                      {!eye ? <FaRegEyeSlash /> : <MdOutlineRemoveRedEye />}{" "}
+                    </span>
                   </div>
                 </div>
 
@@ -134,7 +142,7 @@ export default function UserMenu() {
             </Button>
           </Modal.Footer>
         </Modal>
-        
+
         {/* Login account  */}
         <Modal
           className=""
@@ -150,15 +158,17 @@ export default function UserMenu() {
                 </div>
 
                 <div className="w-8/12 mx-auto text-center">
-                  <h2 className="font-bold dark:text-gray-300">Log in to your account</h2>
+                  <h2 className="font-bold dark:text-gray-300">
+                    Log in to your account
+                  </h2>
                   <p className="dark:text-gray-400">
-                  Here you can log in to your account
+                    Here you can log in to your account
                   </p>
                 </div>
 
                 <div>
                   <div className="mb-2 block w-fu">
-                    <Label htmlFor="email1" value="Your email" />
+                    <Label htmlFor="email1" value="Email" />
                   </div>
                   <div className="flex">
                     {/* <TextInput
@@ -181,21 +191,26 @@ export default function UserMenu() {
 
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="password1" value="Your password" />
+                    <Label htmlFor="password1" value="Password" />
                   </div>
                   <div className="dark:bg-[#374151] border dark:border-0 flex items-center px-2 rounded-md justify-between">
-                    <span className="dark:text-white"><FaKey /></span>
-                    <input className="bg-transparent dark:text-gray-400 border-0 w-11/12 outline-0 focus:outline-none rounded" type={`${!eye ? 'password' : 'text' }`} placeholder="Password" />
-                    <span className="dark:text-gray-200" onClick={handleEye}>{!eye ? <FaRegEyeSlash /> : <MdOutlineRemoveRedEye /> }  </span>
-                   
+                    <span className="dark:text-white">
+                      <FaKey />
+                    </span>
+                    <input
+                      className="bg-transparent dark:text-gray-400 border-0 w-11/12 outline-0 focus:outline-none rounded"
+                      type={`${!eye ? "password" : "text"}`}
+                      placeholder="Password"
+                    />
+                    <span className="dark:text-gray-200" onClick={handleEye}>
+                      {!eye ? <FaRegEyeSlash /> : <MdOutlineRemoveRedEye />}{" "}
+                    </span>
                   </div>
                 </div>
-
               </form>
             </Modal.Body>
           </div>
           <Modal.Footer className="dark:bg-[#1f2937]">
-            
             <Button
               className="w-6/12"
               color="gray"
@@ -213,36 +228,44 @@ export default function UserMenu() {
         </Modal>
 
         {/* Delete Account  */}
-        <Modal show={openModalDelete} size="md" onClose={() => setOpenModalDelete(false)} popup>
-        <Modal.Header className="dark:bg-[#1c2a3f]" />
-        <Modal.Body className="dark:bg-[#1c2a3f] rounded-b">
-          <div className="text-center">
-            <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
-            <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-              Are you sure you want to Delete this Account !
-            </h3>
-            <div className="flex justify-center gap-4">
-              <button className="bg-rose-600 px-2 rounded text-white" color="failure" onClick={() => setOpenModalDelete(false)}>
-                {"Yes, I'm sure"}
-              </button>
-              <Button color="gray" onClick={() => setOpenModalDelete(false)}>
-                No, cancel
-              </Button>
+        <Modal
+          show={openModalDelete}
+          size="md"
+          onClose={() => setOpenModalDelete(false)}
+          popup
+        >
+          <Modal.Header className="dark:bg-[#1c2a3f]" />
+          <Modal.Body className="dark:bg-[#1c2a3f] rounded-b">
+            <div className="text-center">
+              <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-red-500 dark:text-gray-200" />
+              <h3 className="mb-5 text-xl font-normal text-gray-500 dark:text-gray-400">
+                Are you sure you want to Delete this Account !
+              </h3>
+              <div className="flex justify-center gap-4">
+                <button
+                  className="bg-rose-600 px-5 py-2 rounded text-white"
+                  color="failure"
+                  onClick={() => setOpenModalDelete(false)}
+                >
+                  {"Yes, I'm sure"}
+                </button>
+                <button className="bg-gray-100 px-5 py-2 rounded text-black" color="gray" onClick={() => setOpenModalDelete(false)}>
+                  No, cancel
+                </button>
+              </div>
             </div>
-          </div>
-        </Modal.Body>
-      </Modal>
-
+          </Modal.Body>
+        </Modal>
       </div>
 
       {/*======================== right side user information ==========================*/}
-      <div className="flex items-center gap-4">
-
+      <div className="flex items-center sm:gap-4 gap-2">
         <Flowbite className="text-white border">
           <DarkThemeToggle></DarkThemeToggle>
         </Flowbite>
 
         <Dropdown
+          className=""
           arrowIcon={false}
           inline
           label={
@@ -250,17 +273,11 @@ export default function UserMenu() {
               alt="User settings"
               img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
               rounded
+              className="z-10"
             />
           }
         >
-          <Dropdown.Item className="flex flex-col hover:bg-transparent text-left">
-            <span className="text-gray-400 text-left">
-              You are signed in as
-            </span>
-            <span>okx@local.com</span>
-            <span>Password: x;ufdgg8Jj#@$</span>
-          </Dropdown.Item>
-          <hr className="my-2" />
+         
 
           <Dropdown.Item
             onClick={() => setOpenModal(true)}
@@ -269,14 +286,28 @@ export default function UserMenu() {
             <HiOutlineUserAdd className="text-xl" /> Create an account
           </Dropdown.Item>
 
-          <Dropdown.Item onClick={()=> setOpenModalLogin(true)}  className="flex items-center gap-3 my-1">
+          <Dropdown.Item
+            onClick={() => setOpenModalLogin(true)}
+            className="flex items-center gap-3 my-1"
+          >
             <FaRegUser className="text-xl" /> Login
           </Dropdown.Item>
-          <Dropdown.Item onClick={()=>setOpenModalDelete(true)} className="flex items-center gap-3 my-1">
+          <Dropdown.Item
+            onClick={() => setOpenModalDelete(true)}
+            className="flex items-center gap-3 my-1"
+          >
             <RiDeleteBin6Line className="text-xl" /> Delete Account
           </Dropdown.Item>
 
           <hr className="my-2" />
+
+          <Dropdown.Item className="flex flex-col  hover:bg-transparent items-start">
+            <span className="text-gray-400 text-left mb-2 font-bold">
+              You are signed in as
+            </span>
+            <span>bot@gmail.com</span>
+            <span>Password: <span  className={`blur-sm hover:blur-none`}>bot@gmail123</span></span>
+          </Dropdown.Item>
 
           <Dropdown.Item className="flex items-center gap-3">
             <FaArrowRightFromBracket className="text-xl" /> Log Out
