@@ -7,7 +7,7 @@ import { FaRegCopyright } from "react-icons/fa";
 export default function Navbar() {
 
   const handleRefresh = ()=>{
-    location.reload()
+    // location.reload()
   }
 
   return (
@@ -25,8 +25,8 @@ export default function Navbar() {
             >
               <MdOutlineInbox className="text-2xl text-gray-500" /> Inbox
             </NavLink>
-            <li onClick={handleRefresh} className="flex gap-2 items-center font-semibold dark:hover:bg-[#141a24] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2">
-              <TbRefresh className="text-2xl text-gray-500" /> Refresh
+            <li onClick={handleRefresh} className="flex group gap-2 items-center font-semibold dark:hover:bg-[#141a24] dark:text-gray-200 dark:hover:text-gray-400 hover:bg-gray-100 rounded cursor-pointer p-2">
+              <TbRefresh className="text-2xl transition-transform transform group-active:rotate-90 text-gray-500" /> <span>Refresh</span>
             </li>
           </ul>
         </div>

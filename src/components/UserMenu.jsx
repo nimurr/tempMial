@@ -57,24 +57,24 @@ export default function UserMenu() {
           show={openModal}
           onClose={() => setOpenModal(false)}
         >
-          <Modal.Header className="dark:bg-[#1f2937] bg-gray-200"></Modal.Header>
+          <Modal.Header className="dark:bg-[#1f2937] p-1 md:p-4 bg-gray-200"></Modal.Header>
           <div className="dark:bg-[#1f2937] ">
             <Modal.Body className="w-full mx-auto">
               <form className="flex max-w-full flex-col gap-4">
-                <div className="text-center w-14 mx-auto bg-rose-600 h-14 flex justify-center rounded-full items-center">
+                <div className="text-center md:w-14 w-10 mx-auto bg-rose-600 md:h-14 h-10 flex justify-center  rounded-full items-center">
                   <HiOutlineUserAdd className=" text-white text-2xl text-center " />
                 </div>
 
                 <div className="w-8/12 mx-auto text-center">
-                  <h2 className="font-bold dark:text-gray-300 text-gray-700">Create An Account</h2>
-                  <p className="text-gray-500">
+                  <h2 className="font-bold dark:text-gray-300 text-gray-700 ">Create An Account</h2>
+                  <p className="text-gray-500 hidden md:block">
                     Here you can create a new account for this you need to
                     select a username, then domain and password!
                   </p>
                 </div>
 
                 <div>
-                  <div className="mb-2 block w-fu">
+                  <div className="mb-2 hidden md:block w-fu">
                     <Label htmlFor="email1" value="Email" />
                   </div>
                   <div className="flex">
@@ -90,7 +90,7 @@ export default function UserMenu() {
                       id="email4"
                       type="email"
                       icon={HiMail}
-                      placeholder="bot@gmail.com"
+                      placeholder="username"
                       required
                     />
                     <Select className="w-4/12" id="countries" required>
@@ -101,7 +101,7 @@ export default function UserMenu() {
                 </div>
 
                 <div>
-                  <div className="mb-2 block">
+                  <div className="mb-2 hidden md:block">
                     <Label htmlFor="password1" value="Password" />
                   </div>
                   <div className="dark:bg-[#374151] border dark:border-0 flex items-center px-2 rounded-md justify-between">
@@ -126,7 +126,7 @@ export default function UserMenu() {
               </form>
             </Modal.Body>
           </div>
-          <Modal.Footer className="dark:bg-[#1f2937]">
+          <Modal.Footer className="dark:bg-[#1f2937] py-2 md:py-5">
             <button
               className="w-6/12 bg-rose-600 p-2 rounded text-white"
               onClick={() => setOpenModal(false)}
@@ -149,11 +149,11 @@ export default function UserMenu() {
           show={openModalLogin}
           onClose={() => setOpenModalLogin(false)}
         >
-          <Modal.Header className="dark:bg-[#1f2937]"></Modal.Header>
+          <Modal.Header className="dark:bg-[#1f2937] p-1 md:p-4"></Modal.Header>
           <div className="dark:bg-[#1f2937]">
             <Modal.Body className=" w-full mx-auto">
               <form className="flex max-w-full flex-col gap-4">
-                <div className="text-center w-14 mx-auto bg-rose-600 h-14 flex justify-center rounded-full items-center">
+                <div className="text-center md:w-14 w-10 mx-auto bg-rose-600 md:h-14 h-10 flex justify-center  rounded-full items-center">
                   <FaRegUser className=" text-white text-2xl text-center " />
                 </div>
 
@@ -161,7 +161,7 @@ export default function UserMenu() {
                   <h2 className="font-bold dark:text-gray-300">
                     Log in to your account
                   </h2>
-                  <p className="dark:text-gray-400">
+                  <p className="dark:text-gray-400 hidden md:block">
                     Here you can log in to your account
                   </p>
                 </div>
@@ -210,7 +210,7 @@ export default function UserMenu() {
               </form>
             </Modal.Body>
           </div>
-          <Modal.Footer className="dark:bg-[#1f2937]">
+          <Modal.Footer className="dark:bg-[#1f2937] py-2 md:py-5">
             <Button
               className="w-6/12"
               color="gray"
@@ -234,7 +234,7 @@ export default function UserMenu() {
           onClose={() => setOpenModalDelete(false)}
           popup
         >
-          <Modal.Header className="dark:bg-[#1c2a3f]" />
+          <Modal.Header className="dark:bg-[#1c2a3f] p-1 md:p-4" />
           <Modal.Body className="dark:bg-[#1c2a3f] rounded-b">
             <div className="text-center">
               <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-red-500 dark:text-gray-200" />

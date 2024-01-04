@@ -5,9 +5,13 @@ import { LuMessagesSquare } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+    
+    const goBack = () =>{
+        window.history.back()
+    }
     return (
         <div className="sm:px-3 md:px-10  py-6 space-y-2">
-            <Link to={'/'} className="flex items-center text-blue-600 font-semibold"> <FaAngleLeft />Back</Link>
+        <button onClick={goBack} className="flex items-center text-blue-600 font-semibold"> <FaAngleLeft />Back</button>
             <h2 className="text-2xl font-bold dark:text-white py-2 text-gray-800" >Contact</h2>
             <div className="bg-white dark:text-white dark:bg-[#1f2937] w-full border-2 border-gray-200 dark:border-gray-700  rounded-xl text-lg py-10 px-5 text-gray-500 space-y-5">
                 <p>If the answers to common questions and a detailed description about the 10 minute mail service does not assist you let us know.</p>

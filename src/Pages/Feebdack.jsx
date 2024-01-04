@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaAngleDown, FaAngleLeft, FaAngleUp, FaKey, FaMinus, FaPlus, FaRegEyeSlash, FaRegUser, FaShare } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 export default function Feedback() {
@@ -19,10 +19,14 @@ export default function Feedback() {
   const handlePlusMinus =() =>{
     setPlus(!plus)
   }
+
+  const goBack = () => {
+    window.history.back();
+  };
   return (
     <div className="sm:px-3 md:px-10 py-6 space-y-2">
       {/* Login account  */}
-      <Modal
+      {/* <Modal
           className=""
           show={openModalLogin}
           onClose={() => setOpenModalLogin(false)}
@@ -49,13 +53,7 @@ export default function Feedback() {
                     <Label htmlFor="email1" value="Your email" />
                   </div>
                   <div className="flex">
-                    {/* <TextInput
-                      id="email1"
-                      type="email"
-                      placeholder="name@flowbite.com"
-                      required
-                      className="w-8/12 rounded-0"
-                    /> */}
+                 
                     <TextInput
                       className="w-full rounded-0"
                       id="email4"
@@ -103,8 +101,93 @@ export default function Feedback() {
               Login
             </button>
           </Modal.Footer>
+        </Modal> */}
+        {/* Login account  */}
+        <Modal
+          className=""
+          show={openModalLogin}
+          onClose={() => setOpenModalLogin(false)}
+        >
+          <Modal.Header className="dark:bg-[#1f2937] p-1 md:p-4"></Modal.Header>
+          <div className="dark:bg-[#1f2937]">
+            <Modal.Body className=" w-full mx-auto">
+              <form className="flex max-w-full flex-col gap-4">
+                <div className="text-center md:w-14 w-10 mx-auto bg-rose-600 md:h-14 h-10 flex justify-center  rounded-full items-center">
+                  <FaRegUser className=" text-white text-2xl text-center " />
+                </div>
+
+                <div className="w-8/12 mx-auto text-center">
+                  <h2 className="font-bold dark:text-gray-300">
+                    Log in to your account
+                  </h2>
+                  <p className="dark:text-gray-400 hidden md:block">
+                    Here you can log in to your account
+                  </p>
+                </div>
+
+                <div>
+                  <div className="mb-2 block w-fu">
+                    <Label htmlFor="email1" value="Email" />
+                  </div>
+                  <div className="flex">
+                    {/* <TextInput
+                      id="email1"
+                      type="email"
+                      placeholder="name@flowbite.com"
+                      required
+                      className="w-8/12 rounded-0"
+                    /> */}
+                    <TextInput
+                      className="w-full rounded-0"
+                      id="email4"
+                      type="email"
+                      icon={HiMail}
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="password1" value="Password" />
+                  </div>
+                  <div className="dark:bg-[#374151] border dark:border-0 flex items-center px-2 rounded-md justify-between">
+                    <span className="dark:text-white">
+                      <FaKey />
+                    </span>
+                    <input
+                      className="bg-transparent dark:text-gray-400 border-0 w-11/12 outline-0 focus:outline-none rounded"
+                      type={`${!eye ? "password" : "text"}`}
+                      placeholder="Password"
+                    />
+                    <span className="dark:text-gray-200" onClick={handleEye}>
+                      {!eye ? <FaRegEyeSlash /> : <MdOutlineRemoveRedEye />}{" "}
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </Modal.Body>
+          </div>
+          <Modal.Footer className="dark:bg-[#1f2937] h-auto py-2 md:py-5">
+            <Button
+              className="w-6/12"
+              color="gray"
+              onClick={() => setOpenModalLogin(false)}
+            >
+              Cancel
+            </Button>
+            <button
+              className="w-6/12 bg-rose-600 p-2 rounded text-white"
+              onClick={() => setOpenModalLogin(false)}
+            >
+              Login
+            </button>
+          </Modal.Footer>
         </Modal>
-        <Link to={'/'} className="flex items-center text-blue-600 font-semibold"> <FaAngleLeft />Back</Link>
+      
+        {/* <Link to={'/'} className="flex items-center text-blue-600 font-semibold"> <FaAngleLeft />Back</Link> */}
+        <button onClick={goBack} className="flex items-center text-blue-600 font-semibold"> <FaAngleLeft />Back</button>
       <h2 className="text-2xl font-bold py-2 text-gray-800 dark:text-white" >Feedback</h2>
       <div className="bg-white dark:bg-[#1f2937] dark:border-gray-700 w-full border-2 border-gray-200 rounded-xl text-lg py-10 px-5 text-gray-500 dark:text-white space-y-5">
         <p>10 minute mail offers a unique email experience with optimized servers for swift message delivery.</p>
@@ -115,7 +198,7 @@ export default function Feedback() {
         </p>
         <textarea name="commentbox" placeholder="Add Comment ..." id="" className="w-full rounded dark:bg-[#1f2937] border border-gray-300 dark:border-gray-700" rows="5"></textarea>
         <p className="flex justify-end">
-          <Button color="blue">Add Comment</Button>
+          <Button onClick={()=> setOpenModalLogin(true)} color="blue">Add Comment</Button>
         </p>
         <p className="text-end text-sm space-x-2">
           <span>Upvotes</span>

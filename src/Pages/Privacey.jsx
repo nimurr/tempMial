@@ -1,10 +1,14 @@
 import { FaAngleLeft } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 
 const Privacy = () => {
+
+        const goBack = () =>{
+            window.history.back()
+        }
+
     return (
         <div className="sm:px-3 md:px-10 py-6 space-y-2">
-            <Link to={'/'} className="flex items-center text-blue-600 font-semibold"> <FaAngleLeft />Back</Link>
+            <button onClick={goBack} className="flex items-center text-blue-600 font-semibold"> <FaAngleLeft />Back</button>            <h2 className="text-2xl font-bold py-2 dark:text-white text-gray-800" >Frequently Asked Questions</h2>
             <h2 className="text-2xl font-bold py-2 text-gray-800 dark:text-white" >Privacy Policy</h2>
             <div className="bg-white dark:bg-[#1f2937] dark:border-gray-700 w-full border-2 border-gray-200 rounded-xl text-lg py-10 px-5 text-gray-500 dark:text-gray-400 space-y-5">
                 <p>This is Privacy Policy for bodmail. This document explains policies for the collection, use, and disclosure of personal information on mail.tm. This privacy policy deals with personally-identifiable information (referred to as {`"data" `}below) that may be collected by this site.</p> font-semibold
