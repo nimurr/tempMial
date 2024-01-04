@@ -1,16 +1,25 @@
 import { LuShieldCheck } from "react-icons/lu";
 import { CiClock1, CiUser } from "react-icons/ci";
+import { MdRefresh } from "react-icons/md";
+
 
 const Index = () => {
   return (
     <div className="flex min-h-[70vh] justify-end items-center flex-col">
-      <div className="flex md:flex-row flex-col  justify-between gap-2">
+      <div className="flex xl:flex-row flex-col  justify-between gap-2">
 
-        <div className="order-2 md:order-1">
-          <img className="w-full" src="https://res.cloudinary.com/dav9mftpk/image/upload/v1704289119/Screenshot_1_q9soxj.png" alt="" />
+        <div className="order-2  xl:order-1 hidden xl:block">
+          <img className="w-full h-full" src="https://res.cloudinary.com/dav9mftpk/image/upload/v1704289119/Screenshot_1_q9soxj.png" alt="" />
         </div>
 
-        <div className="md:w-8/12 order-1">
+        <div className="xl:w-8/12 order-1 mb-10 xl:mb-0">
+
+          <div className="sm:w-10/12 mx-auto text-center bg-gray-200 text-gray-800 dark:bg-[#1f2937] px-4 py-10 rounded-md mb-10">
+              <MdRefresh className="animate-spin dark:text-white text-gray-800 text-4xl w-10 mx-auto" />
+              <h2 className="dark:text-white font-semibold">No messages</h2>
+              <p className="text-[14px] dark:text-gray-400">Waiting for incoming messages</p>
+          </div>
+
           <div>
             <svg
               fill="none"
@@ -97,15 +106,13 @@ const Index = () => {
             <p className="text-lg md:w-3/4 mx-auto text-gray-700 dark:text-gray-400">
               Protect your personal email address from spam, bots, phishing and
               other online abuse. Temporary email address - no commitments and
-              no risks. No strings attached, just security guaranteed. Temp mail
-              lets you communicate without exposing your personal email to
-              potential threats.
+              no risks. No strings attached, just security guaranteed.
             </p>
           </div>
         </div>
 
         <div className="order-3">
-          <img className="w-full" src="https://res.cloudinary.com/dav9mftpk/image/upload/v1704289119/Screenshot_1_q9soxj.png" alt="" />
+          <img className="w-full h-full" src="https://res.cloudinary.com/dav9mftpk/image/upload/v1704289119/Screenshot_1_q9soxj.png" alt="" />
         </div>
 
       </div>
